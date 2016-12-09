@@ -1,0 +1,42 @@
+{% import "macros.html" as macros %}
+{% extends "base.html" %}
+
+{% block dropdown %}
+
+<div class="dropdown open">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Entries Per Page:
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=5">5</a>
+    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=10">10</a>
+    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=15">15</a>
+    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=20">20</a>
+    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=30">30</a>
+    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=40">40</a>
+    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=50">50</a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+{% for entry in entries %}
+{{ macros.render_entry(entry) }}
+{% endfor %}
+
+<ul class="pager">
+    {% if has_next %}
+    <li class="previous" >
+    <a href="{{ url_for('entries', page=page + 1) }}">&larr; Older</a>
+    </li>
+    {% endif %}
+    {% if has_prev %}
+    <li class="next">
+    <a href="{{ url_for('entries', page=page - 1) }}">&rarr; Newer</a>
+    </li>
+    {% endif %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% import "macros.html" as macros %}
+{% extends "base.html" %}
+
+{% block content %}
+{{ macros.render_entry(entry) }}
+
+<ul class="pager">
+    <li class="previous" >
+    <a href="{{ url_for('entries', page=1) }}">&larr; Back to All Entries</a>
+    </li>
+</ul>    
+
+{% endblock %}
