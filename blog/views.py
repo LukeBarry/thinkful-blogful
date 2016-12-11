@@ -1,4 +1,7 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
+from flask_login import login_user, login_required, current_user, logout_user
+from werkzeug.security import check_password_hash
+from .database import User
 
 from . import app 
 from .database import session, Entry
@@ -46,25 +49,37 @@ def single_entry(id):
     return render_template("single_entry.html", entry=entry)
                 
 @app.route("/entry/add", methods = ["GET"])
+#@login_required
 def add_entry_get(): 
-    return render_template("add_entry.html")
+    if (current_user.is_authenticated): 
+        return render_template("add_entry.html")
+    else: 
+        return redirect("https://anne-jones-thinkful-annejones817.c9users.io/login")
     
 @app.route("/entry/add", methods=["POST"])
+@login_required
 def add_entry_post():
     entry = Entry(
         title=request.form["title"],
         content=request.form["content"],
+        author = current_user
     )
     session.add(entry)
     session.commit()
     return redirect("https://anne-jones-thinkful-annejones817.c9users.io/page/1")
 
 @app.route("/entry/<id>/edit", methods = ["GET"])
+#@login_required
 def edit_entry_get(id): 
-    entry = session.query(Entry).filter(Entry.id==id).first()
-    return render_template("edit_entry.html", entry=entry)
+    if (current_user.is_authenticated): 
+        entry = session.query(Entry).filter(Entry.id==id).first()
+        return render_template("edit_entry.html", entry=entry)
+    else: 
+        return redirect("https://anne-jones-thinkful-annejones817.c9users.io/login")
+    
     
 @app.route("/entry/<id>/edit", methods = ["POST"])
+@login_required
 def edit_entry_PUT(id): 
     entry = session.query(Entry).filter(Entry.id==id).first()
     entry.title=request.form["title"]
@@ -73,16 +88,44 @@ def edit_entry_PUT(id):
     return redirect("https://anne-jones-thinkful-annejones817.c9users.io/page/1")
 
 @app.route("/entry/<id>/delete", methods = ["GET"])
+#@login_required
 def delete_entry_get(id): 
-    entry = session.query(Entry).filter(Entry.id==id).first()
-    return render_template("delete_entry.html", entry=entry)
+    if (current_user.is_authenticated): 
+        entry = session.query(Entry).filter(Entry.id==id).first()
+        return render_template("delete_entry.html", entry=entry)
+    else: 
+        return redirect("https://anne-jones-thinkful-annejones817.c9users.io/login")
+    
     
 @app.route("/entry/<id>/delete", methods = ["POST"])
+@login_required
 def delete_entry_post(id): 
     entry = session.query(Entry).filter(Entry.id==id).first()
     session.delete(entry)
     session.commit()
     return redirect("https://anne-jones-thinkful-annejones817.c9users.io/page/1")    
+    
+@app.route("/login", methods=["GET"])
+def login_get(): 
+    return render_template("login.html")
+    
+@app.route("/login", methods=["POST"])
+def login_post(): 
+    email = request.form["email"]
+    password = request.form["password"]
+    user = session.query(User).filter_by(email=email).first()
+    if not user or not check_password_hash(user.password, password): 
+        flash("Incorrect username or password", "danger")
+        return redirect("https://anne-jones-thinkful-annejones817.c9users.io/login")
+    
+    login_user(user)
+    return redirect(request.args.get('next') or "https://anne-jones-thinkful-annejones817.c9users.io/")
+
+@app.route('/logout')
+def logout(): 
+    logout_user(); 
+    flash('You were logged out')
+    return redirect("https://anne-jones-thinkful-annejones817.c9users.io/")
     
 
     

@@ -3,7 +3,7 @@
 
 {% block dropdown %}
 
-<div class="dropdown open">
+<div class="dropdown closed">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Entries Per Page:
   </button>
@@ -17,6 +17,18 @@
     <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=50">50</a>
   </div>
 </div>
+
+
+
+{% endblock %}
+
+
+
+{% block addentry %}
+
+<a href="https://anne-jones-thinkful-annejones817.c9users.io/login" class="btn btn-info" role="button">Login</a>
+<a href="https://anne-jones-thinkful-annejones817.c9users.io/logout" class="btn btn-info" role="button">Logout</a>
+<a href="https://anne-jones-thinkful-annejones817.c9users.io/entry/add" class="btn btn-info" role="button">Add Entry</a>
 
 {% endblock %}
 
