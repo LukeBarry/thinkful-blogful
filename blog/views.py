@@ -66,7 +66,7 @@ def add_entry_post():
     )
     session.add(entry)
     session.commit()
-    return redirect("https://anne-jones-thinkful-annejones817.c9users.io/page/1")
+    return redirect("https://anne-jones-thinkful-annejones817.c9users.io/")
 
 @app.route("/entry/<id>/edit", methods = ["GET"])
 #@login_required
