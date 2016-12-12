@@ -1,6 +1,20 @@
 Fontconfig warning: ignoring C.UTF-8: not a valid language tag
-[INFO  - 2016-12-11T21:06:32.084Z] GhostDriver - Main - running on port 42376
-[INFO  - 2016-12-11T21:06:32.917Z] Session [b194e500-bfe5-11e6-875b-5bda7471bf2d] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2016-12-11T21:06:32.917Z] Session [b194e500-bfe5-11e6-875b-5bda7471bf2d] - page.customHeaders:  - {}
-[INFO  - 2016-12-11T21:06:32.917Z] Session [b194e500-bfe5-11e6-875b-5bda7471bf2d] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"},"phantomjs.page.settings.loadImages":true}
-[INFO  - 2016-12-11T21:06:32.917Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: b194e500-bfe5-11e6-875b-5bda7471bf2d
+[INFO  - 2016-12-12T20:00:46.961Z] GhostDriver - Main - running on port 37970
+[INFO  - 2016-12-12T20:00:48.109Z] Session [ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-12-12T20:00:48.109Z] Session [ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3] - page.customHeaders:  - {}
+[INFO  - 2016-12-12T20:00:48.109Z] Session [ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"},"phantomjs.page.settings.loadImages":true}
+[INFO  - 2016-12-12T20:00:48.109Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3
+[ERROR - 2016-12-12T20:00:50.798Z] Session [ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3] - page.onError - msg: ReferenceError: Can't find variable: $
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-12-12T20:00:50.814Z] Session [ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3] - page.onError - stack:
+  global code (http://127.0.0.1:8080/static/js/main.js:1)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-12-12T20:00:58.355Z] Session [ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3] - page.onError - msg: ReferenceError: Can't find variable: $
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-12-12T20:00:58.360Z] Session [ac9e4850-c0a5-11e6-a62b-7b6cca44f8c3] - page.onError - stack:
+  global code (http://127.0.0.1:8080/static/js/main.js:1)
+
+  phantomjs://platform/console++.js:263 in error
