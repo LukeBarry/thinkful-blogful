@@ -3,18 +3,18 @@
 
 {% block dropdown %}
 
-<div class="dropdown closed">
+<div class="dropdown ">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Entries Per Page:
+    Change Entries Per Page
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=5">5</a>
-    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=10">10</a>
-    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=15">15</a>
-    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=20">20</a>
-    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=30">30</a>
-    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=40">40</a>
-    <a class="dropdown-item" href="https://anne-jones-thinkful-annejones817.c9users.io/?limit=50">50</a>
+    <a class="dropdown-item" href="{{ url_for('entries', page=1)}}?limit=5">5</a>
+    <a class="dropdown-item" href="{{ url_for('entries', page=1)}}?limit=10">10</a>
+    <a class="dropdown-item" href="{{ url_for('entries', page=1)}}?limit=15">15</a>
+    <a class="dropdown-item" href="{{ url_for('entries', page=1)}}?limit=20">20</a>
+    <a class="dropdown-item" href="{{ url_for('entries', page=1)}}?limit=30">30</a>
+    <a class="dropdown-item" href="{{ url_for('entries', page=1)}}?limit=40">40</a>
+    <a class="dropdown-item" href="{{ url_for('entries', page=1)}}?limit=50">50</a>
   </div>
 </div>
 
@@ -26,9 +26,9 @@
 
 {% block addentry %}
 
-<a href="https://anne-jones-thinkful-annejones817.c9users.io/login" class="btn btn-info" role="button">Login</a>
-<a href="https://anne-jones-thinkful-annejones817.c9users.io/logout" class="btn btn-info" role="button">Logout</a>
-<a href="https://anne-jones-thinkful-annejones817.c9users.io/entry/add" class="btn btn-info" role="button">Add Entry</a>
+<a href="{{ url_for('login_get') }}" class="btn btn-info" role="button">Login</a>
+<a href="{{ url_for('logout') }}" class="btn btn-info" role="button">Logout</a>
+<a href="{{ url_for('add_entry_get') }}" class="btn btn-info" role="button">Add Entry</a>
 
 {% endblock %}
 
